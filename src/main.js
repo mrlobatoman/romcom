@@ -36,6 +36,7 @@ displaySavedCovers();
 homeButton.addEventListener('click', switchToHome)
 createNewBookButton.addEventListener('click', makeCustomBook)
 saveCoverButton.addEventListener('click', saveCover )
+viewSavedCoversPage.addEventListener('dblclick', deleteCover)
 
 // Create your event handlers and other functions here 👇
 
@@ -100,15 +101,22 @@ function displaySavedCovers() {
     <img class="overlay" src="./assets/overlay.png">
     </div>
     `
+    }
   }
-}
 function saveCover(){
   if(!savedCovers.includes(currentCover)){
     savedCovers.push(currentCover)
     }
   }
 
-
+function deleteCover(cover){
+  for (var i=0; i<savedCovers.length; i++){
+  if (cover.target.parentNode.id == savedCovers[i].id){
+      savedCovers.splice(i, 1)
+      }
+  }
+    displaySavedCovers()
+}
 //========NOTES=========//
 //ARE THESE INPUTS BEING PUSHED INTO THEIR RESPECTIVE ARRAYS?
 //PUSH OUR NEW INSTANCE OF CLASS INTO OUR SAVED COVERS PAGE
