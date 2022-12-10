@@ -18,6 +18,8 @@ var userInputDesc1 = document.querySelector('.user-desc1')
 var userInputDesc2 = document.querySelector('.user-desc2')
 var viewSavedCoversPage = document.querySelector('.saved-covers-section')
 
+var testModalWindow = document.querySelector('.modal')
+var testOverlayArea = docuemnt.querySelector('.overlay')
 // We've provided a few variables below
 var savedCovers = [
   new Cover('http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg', 'Sunsets and Sorrows', 'sunsets', 'sorrows')
@@ -36,6 +38,7 @@ homeButton.addEventListener('click', switchToHome)
 createNewBookButton.addEventListener('click', makeCustomBook)
 saveButton.addEventListener('click', saveCover )
 viewSavedCoversPage.addEventListener('dblclick', deleteCover)
+viewSavedCoversPage.addEventListener('click', goModal)
 
 // Create your event handlers and other functions here 👇
 
@@ -90,7 +93,8 @@ function makeCustomBook() {
 function displaySavedCovers() {
   viewSavedCoversPage.innerHTML = ""
   for(var i = 0; i < savedCovers.length; i++){
-    viewSavedCoversPage.innerHTML += `
+    viewSavedCoversPage.innerHTML += 
+     `
     <div class= "mini-cover" id=${savedCovers[i].id}>
     <img class="cover-image" src=${savedCovers[i].cover}>
     <h2 class="cover-title">${savedCovers[i].title}</h2>
@@ -101,6 +105,7 @@ function displaySavedCovers() {
     `
     }
   }
+
 function saveCover() {
   if(!savedCovers.includes(currentCover)) {
     savedCovers.push(currentCover)
@@ -113,4 +118,24 @@ function deleteCover(cover) {
       }
   }
   displaySavedCovers()
+}
+
+function goModal(cover) {
+  for (var i=0; i<savedCovers.length; i++) {
+    if (cover.target.parentNode.id == savedCovers[i].id) {
+      testModalWindow.innerHTML =
+      `
+      <div class= "cover flex" id="modal-view">
+      <img class="cover-image" src=${savedCovers[i].cover}>
+      <h2 class="cover-title">${savedCovers[i].title}</h2>
+      <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+      <img class="price-tag" src="./assets/price.png">
+      <img class="overlay" src="./assets/overlay.png">
+      </div>
+      `
+      testModalWindow.classList.remove('hidden')
+      // testOverlayArea.classList.remove('hidden')
+
+        }
+    }
 }
