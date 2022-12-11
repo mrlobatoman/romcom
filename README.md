@@ -10,12 +10,13 @@ We have created a tool that embraces a quickly growing trend with creative endea
 ### Installation Instructions:
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
 
-Repository Available Here: https://github.com/mrlobatoman/romcom\
+Repository Available Here: https://github.com/mrlobatoman/romcom
+
 Step 1: Fork repository\
 Step 2: Clone repository onto local machine\
 Step 3: In terminal - change directory(cd) into newly cloned directory, can also use Finder to search for index.html\
 Step 4: Open index.html file in browser\
-Step 5: Click buttons - 'show new random cover button' for inspiration!\
+Step 5: Click buttons - 'show new random cover button' for inspiration!
 
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
